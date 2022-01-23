@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 
-function Login(): JSX.Element {
+export default function Login(): JSX.Element {
   return (
 
     <div className="page page--gray page--login">
@@ -34,7 +34,7 @@ function Login(): JSX.Element {
           </section>
           <section className="locations locations--login locations--current">
             <div className="locations__item">
-              <a className="locations__item-link" href="/">
+              <a className="locations__item-link" href="#todo">
                 <span>Amsterdam</span>
               </a>
             </div>
@@ -45,4 +45,3 @@ function Login(): JSX.Element {
   );
 }
 
-export default Login;

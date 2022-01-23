@@ -1,14 +1,55 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import CardOffer from '../card-offer/card-offer';
+import { Offer } from '../../types/offer';
+// import keyIndex from 'react-key-index';
 
 type MainScreenProps = {
   cardsCount: number;
   offerCount: number;
 };
 
+const arr = [
+  {
+    'bedrooms': 3,
+    'city': {
+      'location': {
+        'latitude': 52.370216,
+        'longitude': 4.895168,
+        'zoom': 10,
+      },
+      'name': 'Amsterdam',
+    },
+    'description': 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
+    'goods': ['Heating', 'Kitchen', 'Cable TV', 'Washing machine', 'Coffee machine', 'Dishwasher'],
+    'host': {
+      'avatar_url': 'img/1.png',
+      'id': 3,
+      'is_pro': true,
+      'name': 'Angelina',
+    },
+    'id': 1,
+    'images': ['img/1.png', 'img/2.png'],
+    'is_favorite': false,
+    'is_premium': false,
+    'location': {
+      'latitude': 52.35514938496378,
+      'longitude': 4.673877537499948,
+      'zoom': 8,
+    },
+    'max_adults': 4,
+    'preview_image': 'img/1.png',
+    'price': 120,
+    'rating': 4.8,
+    'title': 'Beautiful & luxurious studio at great location',
+    'type': 'apartment',
+  },
+];
+
 export default function MainScreen({cardsCount, offerCount} : MainScreenProps): JSX.Element {
 
-  const cards = Array.from({length: cardsCount}, () => CardOffer());
+  // const cards = Array.from({length: cardsCount}, () => CardOffer());
+  // const cardItems = cards.map((card) => <CardOffer key={cards} />);
+  // console.log(cardItems)
 
   return (
     <div className="page page--gray page--main">
@@ -16,21 +57,21 @@ export default function MainScreen({cardsCount, offerCount} : MainScreenProps): 
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link header__logo-link--active" href="/">
-                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
+              <a className="header__logo-link header__logo-link--active" href="#todo">
+                <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
               </a>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
-                  <a className="header__nav-link header__nav-link--profile" href="/">
+                  <a className="header__nav-link header__nav-link--profile" href="#todo">
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
                   </a>
                 </li>
                 <li className="header__nav-item">
-                  <a className="header__nav-link" href="/">
+                  <a className="header__nav-link" href="#todo">
                     <span className="header__signout">Sign out</span>
                   </a>
                 </li>
@@ -46,32 +87,32 @@ export default function MainScreen({cardsCount, offerCount} : MainScreenProps): 
           <section className="locations container">
             <ul className="locations__list tabs__list">
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="/">
+                <a className="locations__item-link tabs__item" href="#todo">
                   <span>Paris</span>
                 </a>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="/">
+                <a className="locations__item-link tabs__item" href="#todo">
                   <span>Cologne</span>
                 </a>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="/">
+                <a className="locations__item-link tabs__item" href="#todo">
                   <span>Brussels</span>
                 </a>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item tabs__item--active" href="/">
+                <a className="locations__item-link tabs__item tabs__item--active" href="#todo">
                   <span>Amsterdam</span>
                 </a>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="/">
+                <a className="locations__item-link tabs__item" href="#todo">
                   <span>Hamburg</span>
                 </a>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="/">
+                <a className="locations__item-link tabs__item" href="#todo">
                   <span>Dusseldorf</span>
                 </a>
               </li>
@@ -101,7 +142,9 @@ export default function MainScreen({cardsCount, offerCount} : MainScreenProps): 
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {cards}
+                {arr.map((card) => {
+                  <CardOffer
+                })}
               </div>
             </section>
             <div className="cities__right-section">
@@ -113,3 +156,38 @@ export default function MainScreen({cardsCount, offerCount} : MainScreenProps): 
     </div>
   );
 }
+
+// {
+//   "bedrooms": 3,
+//   "city": {
+//     "location": {
+//       "latitude": 52.370216,
+//       "longitude": 4.895168,
+//       "zoom": 10
+//     },
+//     "name": "Amsterdam"
+//   },
+//   "description": "A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.",
+//   "goods": ["Heating", "Kitchen", "Cable TV", "Washing machine", "Coffee machine", "Dishwasher"],
+//   "host": {
+//     "avatar_url": "img/1.png",
+//     "id": 3,
+//     "is_pro": true,
+//     "name": "Angelina"
+//   },
+//   "id": 1,
+//   "images": ["img/1.png", "img/2.png"],
+//   "is_favorite": false,
+//   "is_premium": false,
+//   "location": {
+//     "latitude": 52.35514938496378,
+//     "longitude": 4.673877537499948,
+//     "zoom": 8
+//   },
+//   "max_adults": 4,
+//   "preview_image": "img/1.png",
+//   "price": 120,
+//   "rating": 4.8,
+//   "title": "Beautiful & luxurious studio at great location",
+//   "type": "apartment"
+// }
